@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Visibility Audit + Fix | VentAiLabs</title>
+<meta name="description" content="Find out if ChatGPT, Gemini and Perplexity recommend your business, then fix what&#x27;s in the way. $175 audit in 2-3 days. $495 fix package.">
+<link rel="stylesheet" href="site.css">
+<style>
+.hv{display:grid;gap:16px}
+.score{display:flex;gap:18px;align-items:center}
+.ring{width:96px;height:96px;flex:none}
+.ring circle{fill:none;stroke-width:9}
+.score b{font-family:var(--serif);font-weight:500;font-size:34px;line-height:1;display:block}
+.score small{color:var(--muted);font-size:13px;display:block;margin-top:4px}
+.cats{list-style:none;margin:14px 0 0;padding:0}
+.cats li{display:grid;grid-template-columns:minmax(0,1fr) 54px 92px;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line2);font-size:13.5px}
+.cats .pts{font:12.5px var(--mono);color:var(--ink2);text-align:right}
+.cats .tag{justify-self:end}
+.fixl{list-style:none;margin:0;padding:4px 16px 12px}
+.fixl li{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;padding:9px 0;border-top:1px solid var(--line2);font-size:13.5px;align-items:start}
+.fixl li:first-child{border-top:0}
+.fixl .pr{font:600 11px var(--mono);color:var(--red);background:var(--red-bg);border-radius:3px;padding:3px 5px;text-align:center}
+.fixl .pr.p2{color:var(--amber);background:var(--amber-bg)}
+.fixl time{font:12px var(--mono);color:var(--faint);white-space:nowrap}
+/* preview */
+.aud{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
+.aud>div{padding:20px}
+.aud>div+div{border-left:1px solid var(--line2);background:#FCFCFB}
+.aud h5{margin:0 0 10px;font:600 12px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.bar{height:6px;background:var(--line2);border-radius:3px;margin-top:14px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--brand);transition:width .4s}
+.proj{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-top:8px}
+#fx label{display:grid;grid-template-columns:20px minmax(0,1fr) auto;gap:10px;align-items:start;padding:11px 0;border-top:1px solid var(--line2);font-size:14px;cursor:pointer}
+#fx label:first-of-type{border-top:0}
+#fx input{width:16px;height:16px;margin:2px 0 0;accent-color:var(--brand)}
+#fx .pts{font:12.5px var(--mono);color:var(--brand-dk)}
+#fx small{display:block;color:var(--muted);font-size:12.5px}
+.aud .more{margin-top:16px;display:inline-flex}
+@media (max-width:860px){.aud{grid-template-columns:minmax(0,1fr)}.aud>div+div{border-left:0;border-top:1px solid var(--line2)}}
+@media (max-width:420px){.cats li{grid-template-columns:minmax(0,1fr) 46px 84px;gap:6px;font-size:13px}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="mark" href="#top"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#0B6E63" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 22 20H2z"/><path d="M8.2 12.6 11.2 18M10.5 18h6.2M14.6 11.3l3.3 5.9"/></svg>VentAiLabs</a>
+  <nav aria-label="Page"><a href="#how">How it works</a><a href="#try">Try it</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a class="btn small" href="https://calendly.com/ventailabs-marketing/30min" target="_blank" rel="noopener">Book a call</a></nav>
+</div></header>
+<main id="top">
+<section class="hero"><div class="wrap">
+  <div>
+    <p class="kicker">AI visibility audit for local businesses</p>
+    <h1>Find out if ChatGPT recommends your business. Then fix what's in the way.</h1>
+    <p class="lede">For restaurants, trades, clinics, campgrounds and studios. <b>$175 for the audit, ready in 2 to 3 days.</b> $495 if you want us to make the fixes.</p>
+    <div class="actions"><a class="btn" href="https://calendly.com/ventailabs-marketing/30min" target="_blank" rel="noopener">Book a 30-min call<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="textlink" href="#try">See how it works</a></div>
+    <ul class="facts"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>Proof behind every finding</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>Report in HTML and PDF</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>No ranking promises</li></ul>
+  </div>
+  <div class="stack" aria-label="Example of the product"><span class="ex corner">Sample run</span>
+<div class="hv">
+ <div class="app">
+  <div class="app-bar"><div class="t"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span>AI visibility audit · campwarner.com</span></div><span>Oct 17, 2026</span></div>
+  <div class="app-body">
+   <div class="score"><svg class="ring" viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="40" stroke="#EFECE6"/><circle id="ringh" cx="48" cy="48" r="40" stroke="#0B6E63" stroke-linecap="round" stroke-dasharray="114.2 251.3" transform="rotate(-90 48 48)"/></svg><div><b>25/55</b><small>points on the checks we could verify (45%)</small><small>45 more points need a live AI or Google check</small></div></div>
+   <ul class="cats"><li><span>ChatGPT</span><span class="pts">–/8</span><span class="tag ">Not checked</span></li><li><span>Gemini / AI Overviews</span><span class="pts">–/8</span><span class="tag ">Not checked</span></li><li><span>Perplexity</span><span class="pts">–/9</span><span class="tag ">Not checked</span></li><li><span>Google profile</span><span class="pts">–/20</span><span class="tag ">Not checked</span></li><li><span>Reviews</span><span class="pts">3/15</span><span class="tag a">Needs work</span></li><li><span>Listings (name, address, phone)</span><span class="pts">4/10</span><span class="tag a">Needs work</span></li><li><span>Website basics</span><span class="pts">11/15</span><span class="tag g">Pass</span></li><li><span>Schema markup</span><span class="pts">7/15</span><span class="tag a">Needs work</span></li></ul>
+  </div>
+ </div>
+ <div class="app">
+  <div class="app-bar"><div class="t"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg><span>Top fixes</span></div><span>Effort</span></div>
+  <ol class="fixl">
+   <li><span class="pr">P1</span><span>Add a phone number on every page. Match it on Google and Hipcamp.</span><time>15 min</time></li>
+   <li><span class="pr">P1</span><span>Add missing schema: phone, map location, photos, prices, full amenity list.</span><time>30 min</time></li>
+   <li><span class="pr p2">P2</span><span>Ask every guest for a review the day after checkout.</span><time>1 h</time></li>
+  </ol>
+ </div>
+</div></div>
+</div></section>
+
+<section class="sec" id="how"><div class="wrap">
+  <div class="sec-head"><p class="kicker">How it works</p><h2>Your report in 2 to 3 days. Ten minutes of your time.</h2></div>
+  <ol class="steps"><li><span class="n">01</span><h3>You fill out a short form</h3><p>Ten minutes. Your services, your area, your top competitors and the questions customers ask you.</p><span class="when">Day 1</span></li><li><span class="n">02</span><h3>We run the checks</h3><p>We ask ChatGPT, Gemini and Perplexity what your customers ask. We check your Google profile, reviews, listings, website and schema. Anything we can't verify is marked “not checked”.</p><span class="when">Days 1 to 3</span></li><li><span class="n">03</span><h3>We walk you through the fixes</h3><p>A 30-minute call to go over your score and a ranked fix list. Want us to do the fixes? We make them and check again after 30 days.</p><span class="when">Day 3, then optional</span></li></ol>
+</div></section>
+
+<section class="sec alt" id="try"><div class="wrap">
+  <div class="sec-head"><p class="kicker">Try it</p><h2>See a real sample report.</h2><p>We ran the web-based checks on a real public site, campwarner.com. Tick a fix to see how its checked score could move.</p></div>
+  <div class="app">
+ <div class="app-bar"><div class="t"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg><span>Report · campwarner.com · sample run</span></div><span class="ex">Projection</span></div>
+ <div class="aud">
+  <div>
+   <h5>Checked score</h5>
+   <div class="score"><svg class="ring" viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="40" stroke="#EFECE6"/><circle id="ringv" cx="48" cy="48" r="40" stroke="#0B6E63" stroke-linecap="round" stroke-dasharray="114.2 251.3" transform="rotate(-90 48 48)"/></svg><div><b id="sc">25/55</b><small id="sc-note">Today, on the checks we could verify</small></div></div>
+   <div class="bar"><i id="bar" style="width:45.5%"></i></div>
+   <div class="proj"><span>Today: 25</span><span id="proj">After fixes: 25</span></div>
+   <ul class="cats"><li><span>ChatGPT</span><span class="pts">–/8</span><span class="tag ">Not checked</span></li><li><span>Gemini / AI Overviews</span><span class="pts">–/8</span><span class="tag ">Not checked</span></li><li><span>Perplexity</span><span class="pts">–/9</span><span class="tag ">Not checked</span></li><li><span>Google profile</span><span class="pts">–/20</span><span class="tag ">Not checked</span></li><li><span>Reviews</span><span class="pts">3/15</span><span class="tag a">Needs work</span></li><li><span>Listings (name, address, phone)</span><span class="pts">4/10</span><span class="tag a">Needs work</span></li><li><span>Website basics</span><span class="pts">11/15</span><span class="tag g">Pass</span></li><li><span>Schema markup</span><span class="pts">7/15</span><span class="tag a">Needs work</span></li></ul>
+  </div>
+  <div>
+   <h5>Tick the fixes you'd make</h5>
+   <div id="fx"><label><input type="checkbox" data-p="3"><span>Add a phone number and match it everywhere<small>Listings + website</small></span><span class="pts">+3</span></label><label><input type="checkbox" data-p="5"><span>Expand the Campground schema<small>Schema</small></span><span class="pts">+5</span></label><label><input type="checkbox" data-p="1"><span>Fix the Hipcamp toilet contradiction<small>Listings</small></span><span class="pts">+1</span></label><label><input type="checkbox" data-p="1"><span>Add alt text to images<small>Website</small></span><span class="pts">+1</span></label><label><input type="checkbox" data-p="6"><span>Start asking guests for reviews<small>Reviews</small></span><span class="pts">+6</span></label></div>
+   <a class="ctl more" href="audit-sample-campwarner.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>Open the full sample report</a>
+  </div>
+ </div>
+</div>
+<script>
+(function(){const base=25,mx=55,C=251.3;
+document.querySelectorAll('#fx input').forEach(i=>i.onchange=()=>{let s=base;document.querySelectorAll('#fx input:checked').forEach(c=>s+=+c.dataset.p);s=Math.min(s,mx);
+document.getElementById('sc').textContent=s+'/'+mx;document.getElementById('bar').style.width=(100*s/mx)+'%';document.getElementById('proj').textContent='After fixes: '+s+' (projected)';
+document.getElementById('sc-note').textContent=s>base?'Projected, if these fixes are made':'Today, on the checks we could verify';
+document.getElementById('ringv').setAttribute('stroke-dasharray',(C*s/mx).toFixed(1)+' '+C)})})();
+</script>
+  <p class="preview-note"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg><span>campwarner.com is a sample run on a public site, not a client. Scores after fixes are projections, not results. Checks that need a live AI or Google session are marked “Not checked”.</span></p>
+</div></section>
+
+<section class="sec" id="get"><div class="wrap">
+  <div class="sec-head"><p class="kicker">What you get</p><h2>A clear report you can act on, even if you never hire us again.</h2></div>
+  <ul class="get"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>A 100-point scored report</b><span>Eight categories. Every finding shows the proof we found. HTML and PDF.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>AI question checks</b><span>5 to 10 real customer questions in ChatGPT, Gemini and Perplexity. We note who gets named and which sites are cited.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Google profile and reviews check</b><span>A 10-point profile checklist, plus how often you get reviews and how fast you reply.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Listings check</b><span>Is your name, address and phone the same everywhere online?</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Website and schema check</b><span>Can AI tools read your hours, services and prices? You get ready-to-paste code.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>A ranked fix list</b><span>P1, P2 and P3 fixes, with how long each one takes.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>A 30-minute walkthrough</b><span>We go through it together, in plain words.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Fix package (optional)</b><span>We make the P1 and P2 fixes for you and re-check in 30 days.</span></div></li></ul>
+</div></section>
+
+<section class="sec alt" id="pricing"><div class="wrap">
+  <div class="sec-head"><p class="kicker">Pricing</p><h2>Start with the audit. Add the fixes if you want.</h2><p>Fixed prices. No monthly contract.</p></div>
+  <div class="price">
+    <div><p class="label">Audit</p><div class="amt">$175<small>one time</small></div><p class="then">Ready in 2 to 3 days. Includes the walkthrough call.</p><ul><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>100-point scored report</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Questions checked in ChatGPT, Gemini and Perplexity</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Google profile, reviews and listings check</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Ranked fix list with time estimates</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>30-minute walkthrough call</span></li></ul><a class="btn" href="https://calendly.com/ventailabs-marketing/30min" target="_blank" rel="noopener">Book a 30-min call<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <div><p class="label">All options</p><ul class="tiers"><li><div><b>Audit</b><small>Scored report, AI checks, fix list, call</small></div><span class="p">$175</span></li><li><div><b>Fix package</b><small>Schema, listings, Google profile, FAQs and review requests, then a re-check in 30 days</small></div><span class="p">$495</span></li><li><div><b>Monthly tracking</b><small>Monthly AI checks and review help</small></div><span class="p">Quote</span></li></ul><p class="note">No one can promise an AI tool will recommend you. We fix what these tools look at and measure the change honestly.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="faq"><div class="wrap">
+  <div class="sec-head"><p class="kicker">Questions</p><h2>Straight answers</h2></div>
+  <div class="faq"><details><summary>Can you promise ChatGPT will recommend me?</summary><p>No. No one can. We fix what these tools look at, and we show you the before and after.</p></details><details><summary>Is campwarner.com a client?</summary><p>No. It's a sample run on a public website, to show you the report. Its score only counts what we could check from the web.</p></details><details><summary>Why are some checks “not checked” in the sample?</summary><p>Some checks need a live ChatGPT, Gemini or Google session. In a paid audit we run those. In the sample we didn't, so we don't guess a score.</p></details><details><summary>Do you need my passwords?</summary><p>Not for the audit. For the fix package, you add us as a manager on your Google profile and website. You can remove us anytime.</p></details><details><summary>What do you need from me?</summary><p>A 10-minute form. That's it for the audit.</p></details></div>
+</div></section>
+
+<section class="close"><div class="wrap">
+  <h2>Find out what AI tools say about you.</h2>
+  <p>In 30 minutes we'll run a few customer questions together and show you what comes back. Then you decide if the audit is worth it.</p>
+  <a class="btn" href="https://calendly.com/ventailabs-marketing/30min" target="_blank" rel="noopener">Book a 30-min call<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <p class="alt">Rather talk now? Call or text Angel at <a href="tel:+12134291269">213-429-1269</a>.</p>
+</div></section>
+</main>
+<footer><div class="wrap">
+  <p>VentAiLabs · Angel Felix · Compton, CA · 213-429-1269</p>
+  <p>Screens on this page use a made-up business and are marked “Example”. They show how the system works. They are not client results.</p>
+</div></footer>
+</body>
+</html>

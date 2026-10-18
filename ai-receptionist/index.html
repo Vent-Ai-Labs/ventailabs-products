@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Receptionist + Missed-Call Text Back | VentAiLabs</title>
+<meta name="description" content="Never miss another service call. An AI receptionist that answers, books and texts back for home service businesses, 24/7. $600 setup, $249/month.">
+<link rel="stylesheet" href="site.css">
+<style>
+.hv{display:grid;gap:16px}
+.hv .row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px}
+.tr{display:grid;gap:12px}
+.ln .who{display:flex;gap:8px;align-items:baseline;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:3px}
+.ln .who time{font-weight:400;color:var(--faint)}
+.ln p{font-size:14.5px}
+.ln.ai .who{color:var(--brand-dk)}
+.ln.c p{color:var(--ink2)}
+.app-foot{display:flex;flex-wrap:wrap;gap:6px;padding:12px 16px;border-top:1px solid var(--line2);background:#FCFCFB}
+.app-foot .tag .ic{width:13px;height:13px}
+.bub{max-width:88%;padding:8px 11px;border-radius:14px;font-size:13.5px;line-height:1.4;margin-top:8px}
+.bub.out{background:var(--brand);color:#fff;margin-left:auto;border-bottom-right-radius:4px}
+.bub.in{background:var(--line2);border-bottom-left-radius:4px}
+.bub-meta{font-size:11px;color:var(--faint);text-align:right;margin-top:4px}
+.calv{position:relative;padding:4px 14px 14px}
+.calv .h{display:flex;align-items:center;height:30px;border-top:1px solid var(--line2);font-size:11px;color:var(--faint)}
+.calv .h:first-child{border-top:0}
+.calv .evt{position:absolute;left:58px;right:14px;top:36px;height:56px;background:var(--brand-tint);border-left:3px solid var(--brand);border-radius:4px;padding:6px 9px;font-size:12px;line-height:1.35;color:var(--brand-dk)}
+.calv .evt b{display:block;font-size:12.5px;color:var(--ink)}
+.calhd{display:flex;justify-content:space-between;padding:10px 14px 4px;font-size:13px;font-weight:600}
+.calhd span{font-weight:400;color:var(--muted)}
+/* console */
+.console .cg{display:grid;grid-template-columns:220px minmax(0,1fr) 300px;min-height:560px}
+.calls{border-right:1px solid var(--line2);padding:10px;display:flex;flex-direction:column;gap:2px;background:#FCFCFB}
+.calls .lbl{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);padding:8px 8px 6px}
+.calls button{display:flex;gap:10px;align-items:flex-start;text-align:left;background:none;border:0;border-radius:6px;padding:10px 8px;cursor:pointer;font:inherit;color:var(--ink)}
+.calls button .ic{width:16px;height:16px;margin-top:2px;color:var(--muted)}
+.calls button b{display:block;font-size:13.5px;font-weight:600}
+.calls button small{display:block;font-size:12px;color:var(--muted)}
+.calls button:hover{background:var(--line2)}
+.calls button[aria-pressed=true]{background:var(--white);box-shadow:inset 0 0 0 1px var(--line)}
+.calls button[aria-pressed=true] .ic{color:var(--brand)}
+.talk{display:flex;flex-direction:column;min-width:0}
+.talk-hd{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line2)}
+.talk-hd b{display:block;font-size:14px}
+.talk-hd small{color:var(--muted);font-size:12px}
+#chat{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;max-height:400px;min-height:300px}
+#chat .ln{animation:in .2s ease-out}
+#chat .bub{margin-top:0}
+#chat .note{align-self:center;font-size:12px;color:var(--muted);background:var(--line2);border-radius:20px;padding:4px 10px;text-align:center}
+@keyframes in{from{opacity:0;transform:translateY(4px)}}
+.say{border-top:1px solid var(--line2);padding:12px 16px 16px;background:#FCFCFB}
+.say small{display:block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+#opts{display:flex;flex-wrap:wrap;gap:8px}
+#opts button{font:500 13.5px/1.3 var(--sans);text-align:left;background:var(--white);border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:9px 12px;cursor:pointer}
+#opts button:hover{border-color:var(--brand);color:var(--brand-dk)}
+#opts.slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.sys{border-left:1px solid var(--line2);display:flex;flex-direction:column;min-width:0;background:#FCFCFB}
+.sys-hd{padding:14px 16px 10px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+#events{list-style:none;margin:0;padding:0 12px;flex:1;overflow-y:auto;max-height:420px}
+#events li{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:8px;padding:10px 4px;border-top:1px solid var(--line2);animation:in .2s ease-out}
+#events li:first-child{border-top:0}
+#events .ei{width:28px;height:28px;border-radius:6px;background:var(--white);border:1px solid var(--line);display:grid;place-items:center;color:var(--brand)}
+#events .ei .ic{width:15px;height:15px}
+#events li.warn .ei{color:var(--amber)}
+#events b{display:block;font-size:13px;font-weight:600}
+#events small{display:block;font-size:12px;color:var(--muted)}
+#events time{font:11px var(--mono);color:var(--faint);padding-top:2px}
+#events .empty{display:block;color:var(--muted);font-size:13px;border:0;padding:8px 4px}
+.sys details{border-top:1px solid var(--line2)}
+.sys summary{cursor:pointer;padding:12px 16px;font-size:13px;font-weight:600;color:var(--ink2)}
+#log{margin:0;padding:12px 16px;max-height:260px;overflow:auto;font:11.5px/1.5 var(--mono);color:var(--ink2);background:var(--white);border-top:1px solid var(--line2);white-space:pre-wrap;word-break:break-word}
+@media (max-width:960px){
+ .console .cg{grid-template-columns:minmax(0,1fr)}
+ .calls{flex-direction:row;flex-wrap:wrap;border-right:0;border-bottom:1px solid var(--line2)}
+ .calls .lbl{width:100%}
+ .calls button{flex:1 1 150px}
+ .sys{border-left:0;border-top:1px solid var(--line2)}
+ #events{max-height:none}
+}
+@media (max-width:560px){.hv .row{grid-template-columns:minmax(0,1fr)} #opts.slots{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="mark" href="#top"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#0B6E63" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 22 20H2z"/><path d="M8.2 12.6 11.2 18M10.5 18h6.2M14.6 11.3l3.3 5.9"/></svg>VentAiLabs</a>
+  <nav aria-label="Page"><a href="#how">How it works</a><a href="#try">Try it</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a class="btn small" href="https://calendly.com/ventailabs-marketing/30min" target="_blank" rel="noopener">Book a call</a></nav>
+</div></header>
+<main id="top">
+<section class="hero"><div class="wrap">
+  <div>
+    <p class="kicker">AI receptionist for home service businesses</p>
+    <h1>Never miss another service call. We answer, book and text back for you, 24/7.</h1>
+    <p class="lede">For plumbers, HVAC techs, electricians and roofers who can't always get to the phone. <b>$600 to set up, then $249 a month.</b> Live in about a week.</p>
+    <div class="actions"><a class="btn" href="https://calendly.com/ventailabs-marketing/30min" target="_blank" rel="noopener">Book a 30-min call<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="textlink" href="#try">See how it works</a></div>
+    <ul class="facts"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Answers day and night</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7.5" cy="15.5" r="4.5"/><path d="m10.7 12.3 9.8-9.8M17 6l3 3M14.5 8.5l2 2"/></svg>You own every account</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Cancel the monthly plan anytime</li></ul>
+  </div>
+  <div class="stack" aria-label="Example of the product"><span class="ex corner">Example</span>
+<div class="hv">
+ <div class="app">
+  <div class="app-bar"><div class="t"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span>Call from (310) 555-0142</span></div><span class="tag g">Answered · 0:58</span></div>
+  <div class="app-body tr">
+   <div class="ln ai"><span class="who">Riley, AI receptionist <time>Sat 9:47 PM</time></span><p>Thanks for calling Demo Plumbing. Is this an emergency, or can we schedule it?</p></div>
+   <div class="ln c"><span class="who">Caller</span><p>My kitchen sink is backed up. It's not an emergency.</p></div>
+   <div class="ln ai"><span class="who">Riley, AI receptionist</span><p>I can get a tech out Sunday at 10 AM. Does that work?</p></div>
+   <div class="ln c"><span class="who">Caller</span><p>Yes, that works.</p></div>
+  </div>
+  <div class="app-foot"><span class="tag g"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Booked Sun 10:00 AM</span><span class="tag"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Confirmation texted</span><span class="tag"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>Saved to CRM</span></div>
+ </div>
+ <div class="row">
+  <div class="app">
+   <div class="app-bar"><div class="t"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Text back</span></div><span class="tag r">Missed 9:52 PM</span></div>
+   <div class="app-body" style="padding:10px 14px 14px">
+    <div class="bub out">Hi, it's Demo Plumbing. Sorry we missed your call. What's going on? Reply URGENT if water is leaking now.</div>
+    <div class="bub-meta">Sent automatically · 9:52 PM</div>
+    <div class="bub in">URGENT. Water heater is leaking.</div>
+    <div class="bub out">Got it. Our on-call tech will call you in the next 10 minutes.</div>
+   </div>
+  </div>
+  <div class="app">
+   <div class="app-bar"><div class="t"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Calendar</span></div><span>Sun, Oct 19</span></div>
+   <div class="calv"><div class="h">9 AM</div><div class="h">10 AM</div><div class="h">11 AM</div><div class="h">12 PM</div>
+    <div class="evt"><b>Kitchen sink clog</b>Jordan · 1428 Example Ave<br>Booked by phone agent</div></div>
+  </div>
+ </div>
+</div></div>
+</div></section>
+
+<section class="sec" id="how"><div class="wrap">
+  <div class="sec-head"><p class="kicker">How it works</p><h2>Live in about a week. You only spend 30 minutes on it.</h2></div>
+  <ol class="steps"><li><span class="n">01</span><h3>We learn your business</h3><p>On a 30-minute call we write down your services, hours, service area and what counts as an emergency. We also ask how you want urgent calls sent to you.</p><span class="when">Day 1 · 30 min of your time</span></li><li><span class="n">02</span><h3>We build it and test it</h3><p>We set up the phone agent, connect your calendar and turn on missed-call texts. Then we run 25 test calls: emergencies, bookings, price questions and spam. You listen and sign off.</p><span class="when">Days 2 to 6</span></li><li><span class="n">03</span><h3>You go live</h3><p>You forward your business line. For the first two weeks we read every call and fix anything that sounds off.</p><span class="when">Day 7 and after</span></li></ol>
+</div></section>
+
+<section class="sec alt" id="try"><div class="wrap">
+  <div class="sec-head"><p class="kicker">Try it</p><h2>Call the example plumber.</h2><p>This is a working copy of the call flow for a made-up company, Demo Plumbing Co. Pick a call. Tap what the caller says. You'll also see what lands in your calendar, texts and CRM.</p></div>
+  <div class="app console">
+ <div class="app-bar"><div class="t"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><path d="M21 15a2 2 0 0 1-2 2h-1v-6h1a2 2 0 0 1 2 2zM3 15a2 2 0 0 0 2 2h1v-6H5a2 2 0 0 0-2 2z"/><path d="M18 17v1a3 3 0 0 1-3 3h-3"/></svg><span>Call console · Demo Plumbing Co</span></div><span class="ex">Example</span></div>
+ <div class="cg">
+  <aside class="calls" aria-label="Pick a call">
+   <span class="lbl">Pick a call</span>
+   <button data-s="emergency" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg><span><b>Burst pipe</b><small>Emergency, after hours</small></span></button>
+   <button data-s="routine" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span><b>Clogged sink</b><small>Books a visit</small></span></button>
+   <button data-s="quote" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg><span><b>Water heater price</b><small>Quote request</small></span></button>
+   <button data-s="human" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span><b>Wants a person</b><small>Office is closed</small></span></button>
+   <button data-s="missed" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/><path d="m16 2 6 6M22 2l-6 6"/></svg><span><b>Missed call</b><small>Text back</small></span></button>
+  </aside>
+  <div class="talk">
+   <div class="talk-hd"><div><b id="c-num">(310) 555-0142</b><small id="c-sub">Sat 9:47 PM · after hours</small></div><span class="tag g live" id="c-tag"><span class="dot"></span><span id="c-time">0:00</span></span></div>
+   <div id="chat" aria-live="polite"></div>
+   <div class="say"><small id="say-lbl">Caller says</small><div id="opts"></div></div>
+  </div>
+  <div class="sys">
+   <div class="sys-hd">What your systems get</div>
+   <ol id="events"><li class="empty">Pick a call to see what happens.</li></ol>
+   <details><summary>Raw data sent to your CRM</summary><pre id="log">Nothing yet.</pre></details>
+  </div>
+ </div>
+</div>
+<script>
+(function(){
+const IC={"phone": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z\"/></svg>", "phone-missed": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z\"/><path d=\"m16 2 6 6M22 2l-6 6\"/></svg>", "message": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/></svg>", "calendar": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/><path d=\"M16 2v4M8 2v4M3 10h18\"/></svg>", "clock": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 7v5l3 2\"/></svg>", "alert": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z\"/><path d=\"M12 9v4M12 17h.01\"/></svg>", "shield": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/></svg>", "database": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><ellipse cx=\"12\" cy=\"5\" rx=\"8\" ry=\"3\"/><path d=\"M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3\"/></svg>", "list": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01\"/></svg>", "file": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6M16 13H8M16 17H8M10 9H8\"/></svg>", "mail": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\"/><path d=\"m22 7-9 5.7a2 2 0 0 1-2 0L2 7\"/></svg>", "bell": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9\"/><path d=\"M10.3 21a2 2 0 0 0 3.4 0\"/></svg>", "check": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg>", "user": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2\"/><circle cx=\"12\" cy=\"7\" r=\"4\"/></svg>"};
+const $=s=>document.querySelector(s);
+const chat=$('#chat'),opts=$('#opts'),evs=$('#events'),log=$('#log'),tEl=$('#c-time'),tag=$('#c-tag');
+let secs=0,timer=null,ctx={};
+const fmt=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+function startClock(){stopClock();secs=0;tEl.textContent='0:00';timer=setInterval(()=>{secs++;tEl.textContent=fmt(secs)},1000)}
+function stopClock(){if(timer)clearInterval(timer);timer=null}
+function ev(i,t,d,warn){const e=evs.querySelector('.empty');if(e)e.remove();const li=document.createElement('li');if(warn)li.className='warn';li.innerHTML='<span class="ei">'+IC[i]+'</span><div><b>'+t+'</b><small>'+(d||'')+'</small></div><time>'+fmt(secs)+'</time>';evs.appendChild(li);evs.scrollTop=1e9}
+function raw(name,o){log.textContent=(log.textContent==='Nothing yet.'?'':log.textContent+'\n\n')+'// '+name+'\n'+JSON.stringify(o,null,2)}
+function say(who,t){const d=document.createElement('div');
+ if(who==='ai'||who==='c'){d.className='ln '+who;d.innerHTML='<span class="who">'+(who==='ai'?'Riley, AI receptionist':'Caller')+'</span><p>'+t+'</p>'}
+ else if(who==='out'||who==='in'){d.className='bub '+who;d.innerHTML=t}
+ else{d.className='note';d.textContent=t}
+ chat.appendChild(d);chat.scrollTop=1e9}
+const SLOTS=['Sun 8:00 AM','Sun 10:00 AM','Sun 1:00 PM','Mon 7:30 AM','Mon 9:00 AM','Mon 2:00 PM'];
+function crm(type,outcome){ev('database','Call saved to CRM',outcome);
+ raw('call.ended webhook',{event:'call.ended',business:'Demo Plumbing Co (example)',channel:type==='textback'?'sms':'voice',caller:{phone:ctx.phone||'+13105550142',address:ctx.addr||null},intent:type,urgency:ctx.urgency||'routine',job_summary:ctx.job||null,outcome:outcome,appointment:ctx.slot||null,pipeline_stage:type==='routine'?'Booked':'New Lead',tags:['ai-receptionist','after-hours'],recording_url:'https://example.com/recordings/call.mp3',duration_sec:secs})}
+const N={
+ start:{ai:"Thanks for calling Demo Plumbing. This is Riley, the after-hours assistant. Is this an emergency, like flooding or a gas smell? Or can we schedule it?",o:[["Water is pouring from a pipe!","emerg"],["My kitchen sink is clogged","routine"],["How much is a new water heater?","quote"],["Can I talk to a real person?","human"]]},
+ emerg:{ai:"I'm on it. If it's safe, turn off the main water shutoff. It's usually near the front hose spigot or the water heater. Is anyone hurt, or is water near any outlets?",o:[["No one's hurt. The water is off now.","emerg2"],["Water is near the outlets","emergElec"]],fx:()=>{ctx.urgency='emergency';ctx.job='Active leak';ev('alert','Marked as an emergency','Active leak · confidence 0.94',true);raw('classify_intent',{intent:'emergency_leak',confidence:0.94})}},
+ emergElec:{ai:"Please stay away from that area and don't touch the outlets. If anything sparks or smells like burning, call 911. I'm getting our on-call tech for you now.",o:[["OK","emerg2"]],fx:()=>ev('shield','Safety rule triggered','Water near outlets. Caller told to stay clear.',true)},
+ emerg2:{ai:"Thank you. What's the address, and the best number to reach you?",o:[["1428 Example Ave, Compton. 310-555-0142.","emergXfer"]]},
+ emergXfer:{ai:"Got it. I'm connecting you to our on-call tech now. After-hours visits have a $149 trip fee that goes toward the repair. Is that OK?",o:[["Yes, please send someone","emergDone"]],fx:()=>{ctx.addr='1428 Example Ave, Compton, CA';ctx.phone='+13105550142'}},
+ emergDone:{note:"Connecting to on-call tech with a spoken summary",ai:"You're connected. The tech has your address and what's going on. You'll get a text too. Stay safe.",end:1,fx:()=>{ev('phone','Connected to on-call tech','Warm transfer with a short summary');raw('transfer_call',{target:'on_call_tech',mode:'warm',whisper:'Emergency: active leak, main shut off, 1428 Example Ave. Caller OK with $149 trip fee.'});ev('message','Text sent to caller','Tech is on the way to 1428 Example Ave');raw('send_sms',{to:ctx.phone,template:'emergency_dispatch',body:'Demo Plumbing: a tech is on the way to 1428 Example Ave. We will text the ETA. Reply STOP to opt out.'});crm('emergency','Sent to on-call tech')}},
+ routine:{ai:"Sorry about that. Is it just the kitchen sink, or are other drains slow too?",o:[["Just the kitchen sink","routine2"],["The toilet and shower too","routineMain"]],fx:()=>{ctx.urgency='routine';ctx.job='Kitchen sink clog';ev('list','Job type: drain clog','Confidence 0.91');raw('classify_intent',{intent:'drain_clog',confidence:0.91})}},
+ routineMain:{ai:"When several drains back up, it can be the main line. We'll book a camera check. Try not to run water until then.",o:[["OK, let's book it","routine2"]],fx:()=>{ctx.job='Possible main line clog'}},
+ routine2:{ai:"Here's what's open. Which time works best?",slots:1,fx:()=>{ev('calendar','Checked open times','6 open slots in the next 2 days');raw('check_availability',{service:'drain',window_days:2,open_slots:SLOTS})}},
+ routine3:{ai:"",o:[["Yes. 1428 Example Ave. 310-555-0142.","routineDone"]]},
+ routineDone:{ai:"You're booked. You'll get a text now and a reminder that morning. Anything else?",o:[["No, thanks!","bye"]],fx:()=>{ctx.addr='1428 Example Ave, Compton, CA';ctx.phone='+13105550142';ev('calendar','Booked: '+ctx.slot,ctx.job+' · 60 min');raw('book_appointment',{start:ctx.slot,duration_min:60,service:ctx.job,customer:{name:'Jordan (example)',phone:ctx.phone,address:ctx.addr}});ev('message','Confirmation text sent','Reply C to confirm or R to reschedule');raw('send_sms',{to:ctx.phone,template:'booking_confirm',body:'Demo Plumbing: you are booked for '+ctx.slot+'. Reply C to confirm or R to reschedule.'});crm('routine','Booked '+ctx.slot)}},
+ quote:{ai:"Happy to help. Is your water heater a tank or tankless? About how old is it?",o:[["A 50-gallon gas tank. About 12 years old.","quote2"]],fx:()=>{ctx.job='Water heater replacement';ev('list','Job type: quote request','Confidence 0.89');raw('classify_intent',{intent:'quote_request',confidence:0.89})}},
+ quote2:{ai:"Thanks. Is it leaking now? And is it in the garage, a closet or the attic?",o:[["Not leaking. It's in the garage.","quote3"]]},
+ quote3:{ai:"I can't give an exact price without a tech seeing it. A licensed tech will text you a price range by 10 AM tomorrow. Or I can book a free estimate visit. Which do you want?",o:[["Text me the price range","quoteDone"],["Book the estimate visit","routine2"]],fx:()=>ev('shield','Price rule applied','No firm price on the phone. Details go to a tech.',true)},
+ quoteDone:{ai:"Done. You'll get a text by 10 AM tomorrow at this number. Anything else?",o:[["No, that's all","bye"]],fx:()=>{ctx.phone='+13105550142';ev('file','Quote request created','50-gal gas tank · 12 years · garage');raw('create_quote_request',{type:'water_heater',fuel:'gas',size_gal:50,age_yr:12,location:'garage',leaking:false,callback:ctx.phone});crm('quote','Quote request for a tech')}},
+ human:{ai:"Of course. Our office is open Monday to Friday, 7 AM to 6 PM. It's closed right now. Is this urgent, or can the office call you first thing tomorrow?",o:[["It's urgent","emerg"],["Tomorrow is fine","humanCb"]]},
+ humanCb:{ai:"No problem. The office will call you at 7:15 AM tomorrow. What's it about, so they're ready?",o:[["A question about my last bill","bye"]],fx:()=>{ctx.phone='+13105550142';ctx.job='Billing question';ev('clock','Office callback booked','Tomorrow 7:15 AM');raw('schedule_callback',{when:'next_open+15m',queue:'office'});crm('callback','Office will call 7:15 AM')}},
+ bye:{ai:"Thanks for calling Demo Plumbing. Have a good night.",note2:"Call ended. Summary and recording saved.",end:1},
+ missed:{note:"Missed call from (310) 555-0142 at 9:52 PM",out:"Hi, it's Demo Plumbing. Sorry we missed your call. What's going on? Reply URGENT if water is leaking now. Or book here: example.com/book",o:[["URGENT. Water heater is leaking.","missed2"]],who:'in',fx:()=>{ev('phone-missed','Missed call detected','No answer · 9:52 PM',true);ev('check','Duplicate check passed','First text to this number today');ev('message','Text back sent','8 seconds after the missed call');ev('list','Added to Google Sheet','Tab: Missed calls');ev('mail','Email sent to owner','Missed call from (310) 555-0142');raw('twilio webhook',{CallStatus:'no-answer',From:'+13105550142',To:'+12135550100'})}},
+ missed2:{out:"Got it. We're paging our on-call tech now. If you can, close the cold water valve on top of the heater. A tech will call you within 10 minutes.",end:1,fx:()=>{ctx.urgency='emergency';ctx.job='Water heater leak (from text back)';ctx.phone='+13105550142';ev('bell','Keyword URGENT','On-call tech paged by text and call',true);crm('textback','Saved from a missed call')}}
+};
+function go(k){const n=N[k];opts.innerHTML='';opts.className='';
+ setTimeout(()=>{if(n.note)say('note',n.note);if(n.ai)say('ai',n.ai);if(n.out)say('out',n.out);if(n.note2)say('note',n.note2);if(n.fx)n.fx();
+  if(n.end){stopClock();const b=document.createElement('button');b.textContent='Start over';b.onclick=()=>run(cur);opts.appendChild(b);return}
+  if(n.slots){opts.className='slots';SLOTS.forEach(s=>{const b=document.createElement('button');b.textContent=s;b.onclick=()=>{ctx.slot=s;say('c',s);N.routine3.ai=s+' is held for you. Can you confirm the address and the best cell number for texts?';go('routine3')};opts.appendChild(b)});return}
+  n.o.forEach(([t,nx])=>{const b=document.createElement('button');b.textContent=t;b.onclick=()=>{say(n.who||'c',t);go(nx)};opts.appendChild(b)})
+ },380)}
+let cur='routine';
+const FIRST={emergency:["Water is pouring from a pipe!","emerg"],routine:["My kitchen sink is clogged","routine"],quote:["How much is a new water heater?","quote"],human:["Can I talk to a real person?","human"]};
+function run(s){cur=s;stopClock();chat.innerHTML='';evs.innerHTML='<li class="empty">Waiting for the call...</li>';log.textContent='Nothing yet.';ctx={};secs=0;tEl.textContent='0:00';
+ document.querySelectorAll('[data-s]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.s===s?'true':'false'));
+ if(s==='missed'){$('#c-num').textContent='(310) 555-0142';$('#c-sub').textContent='Text messages';tag.className='tag r';tEl.textContent='Missed';$('#say-lbl').textContent='Customer texts back';go('missed');return}
+ $('#c-sub').textContent='Sat 9:47 PM · after hours';tag.className='tag g live';$('#say-lbl').textContent='Caller says';startClock();
+ say('ai',N.start.ai);setTimeout(()=>{say('c',FIRST[s][0]);go(FIRST[s][1])},700)}
+document.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>run(b.dataset.s));
+run('routine');
+})();
+</script>
+  <p class="preview-note"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg><span>Demo Plumbing Co is not a real business. Names, numbers, times and the $149 trip fee are examples. Your version uses your own rules.</span></p>
+</div></section>
+
+<section class="sec" id="get"><div class="wrap">
+  <div class="sec-head"><p class="kicker">What you get</p><h2>Everything it takes to answer every call.</h2></div>
+  <ul class="get"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>A phone agent that sounds like your front desk</b><span>It uses your business name, hours and words. Built on Retell or Vapi.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Emergency handling</b><span>It asks safety questions first. Then it connects the caller to your on-call tech with a short summary.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Booking into your calendar</b><span>Google Calendar, GoHighLevel or Jobber. It only offers times that are really open.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Missed-call text back</b><span>If a call still gets missed, the caller gets a text in seconds. One text per number per day.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>A record of every call</b><span>Summary, recording link and caller details go to a Google Sheet or your CRM. You get an email.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Price rules</b><span>It never makes up prices. It only quotes prices you approve. Everything else becomes a callback.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>25 test calls before launch</b><span>You hear how it handles real situations before a customer ever calls.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>A one-page owner guide</b><span>How to change hours, prices and the on-call number on your own.</span></div></li></ul>
+</div></section>
+
+<section class="sec alt" id="pricing"><div class="wrap">
+  <div class="sec-head"><p class="kicker">Pricing</p><h2>One setup fee. One monthly plan.</h2><p>Phone minutes and texts are billed to you by the phone company at their cost. We don't mark them up.</p></div>
+  <div class="price">
+    <div><p class="label">Setup</p><div class="amt">$600<small>one time</small></div><p class="then">Then $249 a month for care. Cancel anytime.</p><ul><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Phone agent with your script and price rules</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Calendar booking and on-call transfer</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Missed-call text back</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Call log in Google Sheets or your CRM</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>25 test calls and an owner guide</span></li></ul><a class="btn" href="https://calendly.com/ventailabs-marketing/30min" target="_blank" rel="noopener">Book a 30-min call<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <div><p class="label">All plans</p><ul class="tiers"><li><div><b>Setup</b><small>Everything to go live in about 7 days</small></div><span class="p">$600</span></li><li><div><b>Care</b><small>Call reviews, script fixes, small changes, monthly report</small></div><span class="p">$249/mo</span></li><li><div><b>More than one location</b><small>Extra lines, other languages, ServiceTitan or HubSpot</small></div><span class="p">Quote</span></li></ul><p class="note">Not sure what phone usage will cost? We'll estimate it on the call, before you pay anything.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="faq"><div class="wrap">
+  <div class="sec-head"><p class="kicker">Questions</p><h2>Straight answers</h2></div>
+  <div class="faq"><details><summary>Will callers know it's not a person?</summary><p>Yes, if you want. We set the greeting to say it's an automated assistant for your business. If a caller asks for a person, it connects them or books a callback.</p></details><details><summary>What if it can't handle a call?</summary><p>It hands off. Urgent calls go to your on-call number. Everything else gets a callback booked. No caller is left stuck.</p></details><details><summary>Will it give out wrong prices?</summary><p>No. It only says prices you approve. Otherwise it takes the details and someone on your team follows up.</p></details><details><summary>What does phone usage cost?</summary><p>It depends on how many calls you get. The voice and text companies bill you directly, at cost. We'll estimate it with you on the call.</p></details><details><summary>Do I need approval to send texts?</summary><p>Yes. US carriers require business texting to be registered (it's called A2P 10DLC). We walk you through it. Every text includes opt-out wording.</p></details><details><summary>Who owns it?</summary><p>You do. The accounts are in your name. You keep the script, the workflows and the call data, even if you cancel.</p></details></div>
+</div></section>
+
+<section class="close"><div class="wrap">
+  <h2>Stop losing jobs to voicemail.</h2>
+  <p>In 30 minutes we'll look at how your calls are handled today. You'll leave with a fixed quote. No pressure.</p>
+  <a class="btn" href="https://calendly.com/ventailabs-marketing/30min" target="_blank" rel="noopener">Book a 30-min call<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <p class="alt">Rather talk now? Call or text Angel at <a href="tel:+12134291269">213-429-1269</a>.</p>
+</div></section>
+</main>
+<footer><div class="wrap">
+  <p>VentAiLabs · Angel Felix · Compton, CA · 213-429-1269</p>
+  <p>Screens on this page use a made-up business and are marked “Example”. They show how the system works. They are not client results.</p>
+</div></footer>
+</body>
+</html>

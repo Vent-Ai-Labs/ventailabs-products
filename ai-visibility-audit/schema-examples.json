@@ -1,0 +1,161 @@
+{
+  "campground_recommended_campwarner": {
+    "@context": "https://schema.org",
+    "@type": "Campground",
+    "@id": "https://campwarner.com/#campground",
+    "name": "Camp Warner",
+    "url": "https://campwarner.com",
+    "description": "A desert tent camp with Christian roots, welcoming all backgrounds in Twentynine Palms, California.",
+    "image": [
+      "https://campwarner.com/REPLACE-hero.jpg"
+    ],
+    "telephone": "+1-REPLACE",
+    "priceRange": "$45/night (verify)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Twentynine Palms",
+      "addressRegion": "CA",
+      "postalCode": "REPLACE",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "REPLACE",
+      "longitude": "REPLACE"
+    },
+    "petsAllowed": true,
+    "publicAccess": false,
+    "amenityFeature": [
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Tent camping",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Picnic tables",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Fire pits",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Outhouse",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Horseshoe pits",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Volleyball court",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "9-hole disc golf",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Dog area",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "BBQ grill",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Pergola with electricity",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Showers",
+        "value": false
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Potable water",
+        "value": false
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "RV hookups",
+        "value": false
+      }
+    ],
+    "sameAs": [
+      "https://www.hipcamp.com/en-US/land/california-camp-warner-y0zhmd95",
+      "https://maps.google.com/?cid=REPLACE"
+    ]
+  },
+  "faq_page_campwarner": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is there drinking water at Camp Warner?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No potable water. Bring all the water you need. (Owner to confirm.)"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I bring an RV?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Tent and vehicle camping only. No RVs, ATVs or dirt bikes. (Owner to confirm.)"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How far is Joshua Tree National Park?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "About a 30-minute drive to the Oasis Visitor Center."
+        }
+      }
+    ]
+  },
+  "local_business_template_example": {
+    "@context": "https://schema.org",
+    "@type": "Plumber",
+    "name": "Demo Plumbing Co (example)",
+    "telephone": "+1-213-555-0100",
+    "areaServed": [
+      "Compton",
+      "Long Beach",
+      "Carson"
+    ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "07:00",
+        "closes": "18:00"
+      }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Compton",
+      "addressRegion": "CA",
+      "addressCountry": "US"
+    }
+  }
+}

@@ -1,0 +1,134 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>campwarner.com: sample audit | VentAiLabs</title><link rel="stylesheet" href="site.css"><style>
+body{background:#fff}
+.rep{max-width:980px;margin:0 auto;padding:40px 32px 56px}
+.rep-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding-bottom:14px}
+.rep h1{font-size:40px;margin:28px 0 6px}
+.rep .meta{color:var(--muted);font-size:15px}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line);border-radius:8px;margin:28px 0 8px}
+.kpis>div{padding:18px 20px}.kpis>div+div{border-left:1px solid var(--line)}
+.kpis span{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.kpis b{display:block;font-family:var(--serif);font-weight:500;font-size:32px;line-height:1.1;margin:6px 0 2px}
+.kpis small{color:var(--muted);font-size:13px}
+.rep h2{font-size:26px;margin:40px 0 12px}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:8px 10px;border-bottom:1px solid var(--ink)}
+td{padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+td.n{font-family:var(--mono);font-size:13px;white-space:nowrap}
+.two{display:grid;grid-template-columns:1.3fr 1fr;gap:32px}
+.chk{list-style:none;padding:0;margin:0}.chk li{padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.box{display:inline-block;width:12px;height:12px;border:1.5px solid var(--ink2);border-radius:2px;margin-right:8px;vertical-align:-1px}
+pre{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:14px;font:12px/1.5 var(--mono);overflow-x:auto;white-space:pre-wrap;word-break:break-word}
+.method{font-size:13px;color:var(--muted);margin-top:24px}
+.rep-foot{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.tag{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+@media (max-width:720px){.kpis{grid-template-columns:1fr}.kpis>div+div{border-left:0;border-top:1px solid var(--line)}.two{grid-template-columns:1fr}.rep{padding:28px 18px}}
+@media print{.rep{padding:0 .5in}h2{break-after:avoid}tr{break-inside:avoid}}
+</style></head><body><div class="rep">
+<div class="rep-top"><span class="mark"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#0B6E63" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 22 20H2z"/><path d="M8.2 12.6 11.2 18M10.5 18h6.2M14.6 11.3l3.3 5.9"/></svg>VentAiLabs</span><span class="muted" style="font-size:13px">AI Visibility Audit</span></div>
+<h1>campwarner.com: sample audit</h1><p class="meta">Sample run on a public website · Checked Oct 17, 2026 (PT) · Not a client</p>
+<div class="kpis"><div><span>Checked score</span><b>25/55</b><small>45% of the points we could verify</small></div><div><span>Not checked</span><b>45 pts</b><small>Need a live AI or Google session</small></div><div><span>Top priority</span><b>3 fixes</b><small>About 2 to 3 hours of work, plus Google verification</small></div></div>
+<h2>Score by category (100 points)</h2><div class="tw"><table><tr><th>Category</th><th>Score</th><th>Status</th><th>What we found</th></tr><tr><td><b>ChatGPT recommendation check</b></td><td class="n">–/8</td><td><span class="tag ">Not checked</span></td><td>Not checked. Requires running prompts in ChatGPT, which can't be done by fetching a web page. Run the prompts in Appendix A.</td></tr><tr><td><b>Gemini / Google AI Overview check</b></td><td class="n">–/8</td><td><span class="tag ">Not checked</span></td><td>Not checked. Same reason. Run the Appendix A prompts in Gemini and Google Search (AI Mode / Overviews).</td></tr><tr><td><b>Perplexity check</b></td><td class="n">–/9</td><td><span class="tag ">Not checked</span></td><td>Not checked. Run the Appendix A prompts in Perplexity and record which sources it cites.</td></tr><tr><td><b>Google Business Profile completeness</b></td><td class="n">–/20</td><td><span class="tag ">Not checked</span></td><td>Not checked. A GBP listing can't be verified from a page fetch, and no Google Maps link was found on the site. Confirm the profile exists, then score it with the GBP checklist.</td></tr><tr><td><b>Reviews (volume, recency, replies)</b></td><td class="n">3/15</td><td><span class="tag a">Needs work</span></td><td>Hipcamp listing (linked from the site) shows a “First Hipcamper Club” badge and no visible review count. The host joined May 2026. Google reviews: not checked.</td></tr><tr><td><b>Citations & NAP consistency</b></td><td class="n">4/10</td><td><span class="tag a">Needs work</span></td><td>1 citation verified (Hipcamp, linked via sameAs). Inconsistency: Hipcamp lists “No toilet”, but its own description mentions an outhouse. No phone number on the site, so NAP can't be fully matched. Other directories: not checked.</td></tr><tr><td><b>Website: crawlability & on-page</b></td><td class="n">11/15</td><td><span class="tag g">Pass</span></td><td>All 6 sitemap URLs return 200. robots.txt allows all and lists the sitemap. Every page has a unique title, a meta description, one H1 and a canonical tag. www redirects to the apex domain (301). Gaps: 3 images per page have empty alt text, there's no tel: link or phone number, and /llms.txt is 404 (optional). http:// didn't respond within 10s, so this needs a recheck.</td></tr><tr><td><b>Structured data (schema.org)</b></td><td class="n">7/15</td><td><span class="tag a">Needs work</span></td><td>A Campground JSON-LD block is on every page, with name, description, URL, sameAs, locality/region and 3 amenities. Missing: telephone, geo, image, priceRange, openingHours/checkin info, full amenity list (Hipcamp lists about 10), FAQPage, and an Organization/WebSite entity.</td></tr></table></div>
+<h2>Fix list, in order</h2><div class="tw"><table><tr><th>Priority</th><th>Fix</th><th>Area</th><th>Points</th><th>Time</th></tr><tr><td><span class="tag r">P1</span></td><td>Claim/verify Google Business Profile (category Campground), add photos, hours, booking link, Q&A</td><td>GBP</td><td class="n">+ up to 20</td><td>1–2 h + verification wait</td></tr><tr><td><span class="tag r">P1</span></td><td>Add phone number + tel: link site-wide; match it exactly on GBP and Hipcamp</td><td>Citations/Site</td><td class="n">+3</td><td>15 min</td></tr><tr><td><span class="tag r">P1</span></td><td>Expand Campground JSON-LD: telephone, geo, image, priceRange, full amenityFeature list, publicAccess, petsAllowed (see Appendix B)</td><td>Schema</td><td class="n">+5</td><td>30 min</td></tr><tr><td><span class="tag a">P2</span></td><td>Review engine: ask every guest for a Google + Hipcamp review 1 day after checkout, reply to every review</td><td>Reviews</td><td class="n">+6–10</td><td>setup 1 h</td></tr><tr><td><span class="tag a">P2</span></td><td>Fix Hipcamp listing contradiction (outhouse vs “No toilet”) so AI answers don't conflict</td><td>Citations</td><td class="n">+1</td><td>10 min</td></tr><tr><td><span class="tag a">P2</span></td><td>Add FAQPage (water, toilets, RVs, pets, 4WD, distance to JTNP) on /plan-your-stay/ + schema</td><td>Schema/AI</td><td class="n">+3</td><td>1 h</td></tr><tr><td><span class="tag ">P3</span></td><td>Descriptive alt text on the 3 empty-alt images per page</td><td>Site</td><td class="n">+1</td><td>20 min</td></tr><tr><td><span class="tag ">P3</span></td><td>List on 3–5 relevant directories (Yelp, Apple Business Connect, Bing Places, camping directories) with identical NAP</td><td>Citations</td><td class="n">+3</td><td>2 h</td></tr><tr><td><span class="tag ">P3</span></td><td>Run the Appendix A prompts monthly and track mention/rank/cited sources</td><td>AI</td><td class="n">measurement</td><td>30 min/mo</td></tr></table></div>
+<div class="two"><div><h2>Appendix A: AI questions to run</h2><div class="tw"><table><tr><th>Question</th><th>ChatGPT</th><th>Gemini</th><th>Perplexity</th><th>Sites cited</th></tr><tr><td>best tent camping near Joshua Tree National Park</td><td><span class="box"></span>named <span class="box"></span>top 3</td><td><span class="box"></span>named <span class="box"></span>top 3</td><td><span class="box"></span>named <span class="box"></span>top 3</td><td></td></tr><tr><td>quiet dark-sky campground near Twentynine Palms for a church group</td><td><span class="box"></span>named <span class="box"></span>top 3</td><td><span class="box"></span>named <span class="box"></span>top 3</td><td><span class="box"></span>named <span class="box"></span>top 3</td><td></td></tr><tr><td>group retreat camping near Joshua Tree with fire pits</td><td><span class="box"></span>named <span class="box"></span>top 3</td><td><span class="box"></span>named <span class="box"></span>top 3</td><td><span class="box"></span>named <span class="box"></span>top 3</td><td></td></tr><tr><td>pet friendly dry camping near 29 Palms under $50</td><td><span class="box"></span>named <span class="box"></span>top 3</td><td><span class="box"></span>named <span class="box"></span>top 3</td><td><span class="box"></span>named <span class="box"></span>top 3</td><td></td></tr><tr><td>Is Camp Warner in Twentynine Palms good for families?</td><td><span class="box"></span>named <span class="box"></span>top 3</td><td><span class="box"></span>named <span class="box"></span>top 3</td><td><span class="box"></span>named <span class="box"></span>top 3</td><td></td></tr></table></div></div>
+<div><h2>Google profile checklist</h2><p class="muted" style="font-size:13px;margin-bottom:6px">2 points each</p><ul class="chk"><li><span class="box"></span>Main and extra categories</li><li><span class="box"></span>Name, address and phone match the website</li><li><span class="box"></span>Hours and holiday hours</li><li><span class="box"></span>Booking or website link</li><li><span class="box"></span>10+ recent photos</li><li><span class="box"></span>Description with services and area</li><li><span class="box"></span>Products or services listed</li><li><span class="box"></span>Q&A with real customer questions</li><li><span class="box"></span>A post in the last 30 days</li><li><span class="box"></span>Review replies within 7 days</li></ul></div></div>
+<h2>Appendix B: suggested schema code</h2><p class="muted" style="margin-bottom:10px">Replace the REPLACE values and confirm facts with the owner before publishing.</p><pre>{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;Campground&quot;,
+  &quot;@id&quot;: &quot;https://campwarner.com/#campground&quot;,
+  &quot;name&quot;: &quot;Camp Warner&quot;,
+  &quot;url&quot;: &quot;https://campwarner.com&quot;,
+  &quot;description&quot;: &quot;A desert tent camp with Christian roots, welcoming all backgrounds in Twentynine Palms, California.&quot;,
+  &quot;image&quot;: [
+    &quot;https://campwarner.com/REPLACE-hero.jpg&quot;
+  ],
+  &quot;telephone&quot;: &quot;+1-REPLACE&quot;,
+  &quot;priceRange&quot;: &quot;$45/night (verify)&quot;,
+  &quot;address&quot;: {
+    &quot;@type&quot;: &quot;PostalAddress&quot;,
+    &quot;addressLocality&quot;: &quot;Twentynine Palms&quot;,
+    &quot;addressRegion&quot;: &quot;CA&quot;,
+    &quot;postalCode&quot;: &quot;REPLACE&quot;,
+    &quot;addressCountry&quot;: &quot;US&quot;
+  },
+  &quot;geo&quot;: {
+    &quot;@type&quot;: &quot;GeoCoordinates&quot;,
+    &quot;latitude&quot;: &quot;REPLACE&quot;,
+    &quot;longitude&quot;: &quot;REPLACE&quot;
+  },
+  &quot;petsAllowed&quot;: true,
+  &quot;publicAccess&quot;: false,
+  &quot;amenityFeature&quot;: [
+    {
+      &quot;@type&quot;: &quot;LocationFeatureSpecification&quot;,
+      &quot;name&quot;: &quot;Tent camping&quot;,
+      &quot;value&quot;: true
+    },
+    {
+      &quot;@type&quot;: &quot;LocationFeatureSpecification&quot;,
+      &quot;name&quot;: &quot;Picnic tables&quot;,
+      &quot;value&quot;: true
+    },
+    {
+      &quot;@type&quot;: &quot;LocationFeatureSpecification&quot;,
+      &quot;name&quot;: &quot;Fire pits&quot;,
+      &quot;value&quot;: true
+    },
+    {
+      &quot;@type&quot;: &quot;LocationFeatureSpecification&quot;,
+      &quot;name&quot;: &quot;Outhouse&quot;,
+      &quot;value&quot;: true
+    },
+    {
+      &quot;@type&quot;: &quot;LocationFeatureSpecification&quot;,
+      &quot;name&quot;: &quot;Horseshoe pits&quot;,
+      &quot;value&quot;: true
+    },
+    {
+      &quot;@type&quot;: &quot;LocationFeatureSpecification&quot;,
+      &quot;name&quot;: &quot;Volleyball court&quot;,
+      &quot;value&quot;: true
+    },
+    {
+      &quot;@type&quot;: &quot;LocationFeatureSpecification&quot;,
+      &quot;name&quot;: &quot;9-hole disc golf&quot;,
+      &quot;value&quot;: true
+    },
+    {
+      &quot;@type&quot;: &quot;LocationFeatureSpecification&quot;,
+      &quot;name&quot;: &quot;Dog area&quot;,
+      &quot;value&quot;: true
+    },
+    {
+      &quot;@type&quot;: &quot;LocationFeatureSpecification&quot;,
+      &quot;name&quot;: &quot;BBQ grill&quot;,
+      &quot;value&quot;: true
+    },
+    {
+      &quot;@type&quot;: &quot;LocationFeatureSpecification&quot;,
+      &quot;name&quot;: &quot;Pergola with electricity&quot;,
+      &quot;value&quot;: true
+    },
+    {
+      &quot;@type&quot;: &quot;LocationFeatureSpecification&quot;,
+      &quot;name&quot;: &quot;Showers&quot;,
+      &quot;value&quot;: false
+    },
+    {
+      &quot;@type&quot;: &quot;LocationFeatureSpecification&quot;,
+      &quot;name&quot;: &quot;Potable water&quot;,
+      &quot;value&quot;: false
+    },
+    {
+      &quot;@type&quot;: &quot;LocationFeatureSpecification&quot;,
+      &quot;name&quot;: &quot;RV hookups&quot;,
+      &quot;value&quot;: false
+    }
+  ],
+  &quot;sameAs&quot;: [
+    &quot;https://www.hipcamp.com/en-US/land/california-camp-warner-y0zhmd95&quot;,
+    &quot;https://maps.google.com/?cid=REPLACE&quot;
+  ]
+}</pre><p class="method">How this sample was made: a live web fetch of campwarner.com (6 pages from its sitemap, robots.txt, sitemap.xml, llms.txt and its schema code) and its linked Hipcamp listing, on Oct 17, 2026 (PT). Anything marked “Not checked” was not verified, and no score is assumed for it. campwarner.com is not a client.</p>
+<p class="rep-foot">VentAiLabs · Angel Felix · Compton, CA · 213-429-1269 · https://calendly.com/ventailabs-marketing/30min</p>
+</div></body></html>

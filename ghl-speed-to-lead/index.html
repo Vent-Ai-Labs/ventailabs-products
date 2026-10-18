@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GoHighLevel Speed-to-Lead Setup | VentAiLabs</title>
+<meta name="description" content="Every new lead gets a text in under a minute, then follow-up until they book. Done-for-you GoHighLevel setup for home service businesses. $600, built in 7 days.">
+<link rel="stylesheet" href="site.css">
+<style>
+.hv{display:grid;gap:16px}
+.hv .row{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:16px}
+.opp{display:flex;gap:14px;align-items:flex-start}
+.av{width:38px;height:38px;border-radius:50%;background:var(--brand-tint);color:var(--brand-dk);display:grid;place-items:center;font-weight:600;font-size:14px;flex:none}
+.opp b{display:block;font-size:15px}
+.opp small{color:var(--muted);font-size:13px}
+.kv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line2)}
+.kv span{display:block;font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:.05em}
+.kv b{font-size:14px;font-weight:600}
+.timer{margin-left:auto;text-align:right}
+.timer span{display:block;font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:.05em}
+.timer b{font-family:var(--serif);font-weight:500;font-size:30px;line-height:1;color:var(--brand-dk)}
+.bub{max-width:90%;padding:8px 11px;border-radius:14px;font-size:13.5px;line-height:1.4;margin-top:8px}
+.bub.out{background:var(--brand);color:#fff;margin-left:auto;border-bottom-right-radius:4px}
+.bub.in{background:var(--line2);border-bottom-left-radius:4px}
+.bub-meta{font-size:11px;color:var(--faint);text-align:right;margin-top:4px}
+.tl{list-style:none;margin:0;padding:6px 14px 14px}
+.tl li{display:grid;grid-template-columns:18px minmax(0,1fr) auto;gap:8px;align-items:start;padding:7px 0;font-size:13px;position:relative}
+.tl li .ic{width:16px;height:16px;color:var(--brand);margin-top:1px}
+.tl li.wait .ic{color:var(--faint)}
+.tl time{font:11.5px var(--mono);color:var(--faint)}
+/* board */
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;padding:12px 14px;border-bottom:1px solid var(--line2)}
+.board{display:grid;grid-template-columns:repeat(7,minmax(124px,1fr));gap:10px;padding:14px;overflow-x:auto;background:#F7F6F3}
+.col{min-height:190px}
+.col h4{margin:0 0 8px;font:600 12px/1.3 var(--sans);color:var(--ink2);display:flex;justify-content:space-between;gap:6px;padding:0 2px}
+.col h4 span{color:var(--faint);font-weight:500}
+.col .stack-c{display:flex;flex-direction:column;gap:8px}
+.card-l{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:9px 10px;font-size:12.5px;line-height:1.35;animation:in .25s ease-out}
+.card-l.sel{border-color:var(--brand);box-shadow:0 0 0 2px var(--brand-tint)}
+.card-l b{display:block;font-size:13px}
+.card-l small{color:var(--muted);display:block}
+.card-l .val{margin-top:6px;font:12px var(--mono);color:var(--ink2)}
+@keyframes in{from{opacity:0;transform:translateY(4px)}}
+.logwrap{border-top:1px solid var(--line2)}
+.logwrap h5{margin:0;padding:12px 16px 4px;font:600 12px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+#alog{list-style:none;margin:0;padding:0 16px 12px;max-height:260px;overflow-y:auto}
+#alog li{display:grid;grid-template-columns:86px 22px minmax(0,1fr);gap:8px;padding:8px 0;border-top:1px solid var(--line2);font-size:13px;animation:in .2s ease-out}
+#alog li:first-child{border-top:0}
+#alog time{font:12px var(--mono);color:var(--faint)}
+#alog .ic{width:16px;height:16px;color:var(--brand);margin-top:1px}
+#alog li.stop .ic{color:var(--amber)}
+#alog b{font-weight:600}
+#alog .wf{font:11.5px var(--mono);color:var(--muted);margin-left:6px}
+#alog .empty{display:block;color:var(--muted);border:0}
+@media (max-width:760px){.board{grid-template-columns:minmax(0,1fr);gap:0;padding:6px 14px}.col{min-height:0;display:grid;grid-template-columns:104px minmax(0,1fr);gap:10px;padding:9px 0;border-top:1px solid var(--line)}.col:first-child{border-top:0}.col h4{margin:0;padding-top:2px}}
+@media (max-width:560px){.hv .row{grid-template-columns:minmax(0,1fr)}.kv{grid-template-columns:repeat(2,minmax(0,1fr))}#alog li{grid-template-columns:64px 20px minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="mark" href="#top"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#0B6E63" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 22 20H2z"/><path d="M8.2 12.6 11.2 18M10.5 18h6.2M14.6 11.3l3.3 5.9"/></svg>VentAiLabs</a>
+  <nav aria-label="Page"><a href="#how">How it works</a><a href="#try">Try it</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a class="btn small" href="https://calendly.com/ventailabs-marketing/30min" target="_blank" rel="noopener">Book a call</a></nav>
+</div></header>
+<main id="top">
+<section class="hero"><div class="wrap">
+  <div>
+    <p class="kicker">GoHighLevel setup for home service businesses</p>
+    <h1>Every new lead gets a text in under a minute. Then we follow up until they book.</h1>
+    <p class="lede">A done-for-you GoHighLevel setup for roofing, HVAC, plumbing and solar companies. <b>$600 one time, built in 7 days.</b> Optional care is $249 a month.</p>
+    <div class="actions"><a class="btn" href="https://calendly.com/ventailabs-marketing/30min" target="_blank" rel="noopener">Book a 30-min call<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="textlink" href="#try">See how it works</a></div>
+    <ul class="facts"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Built in 7 days</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7.5" cy="15.5" r="4.5"/><path d="m10.7 12.3 9.8-9.8M17 6l3 3M14.5 8.5l2 2"/></svg>Built in your own account</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text registration handled</li></ul>
+  </div>
+  <div class="stack" aria-label="Example of the product"><span class="ex corner">Example</span>
+<div class="hv">
+ <div class="app">
+  <div class="app-bar"><div class="t"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>New opportunity · Summit Roofing</span></div><span class="tag g">New Lead</span></div>
+  <div class="app-body">
+   <div class="opp"><span class="av">MG</span><div><b>Maria G.</b><small>“Get a free estimate” form · roof leak over garage</small></div>
+    <div class="timer"><span>First reply</span><b>0:07</b></div></div>
+   <div class="kv"><div><span>Source</span><b>Website form</b></div><div><span>Assigned</span><b>Rep A</b></div><div><span>Received</span><b>Tue 4:02 PM</b></div></div>
+  </div>
+ </div>
+ <div class="row">
+  <div class="app">
+   <div class="app-bar"><div class="t"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Maria G.</span></div><span>SMS</span></div>
+   <div class="app-body" style="padding:10px 14px 14px">
+    <div class="bub out">Hi Maria, it's Summit Roofing. We got your request about the roof leak. Can we call you in 5 minutes, or is later today better?</div>
+    <div class="bub-meta">Sent automatically · 4:02 PM</div>
+    <div class="bub in">Later today. After 4:30 works.</div>
+    <div class="bub out">Thanks! Pick a time here: example.com/book</div>
+   </div>
+  </div>
+  <div class="app">
+   <div class="app-bar"><div class="t"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg><span>Speed to lead</span></div><span class="tag g">Running</span></div>
+   <ol class="tl">
+    <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg><span>Form submitted</span><time>4:02:11</time></li>
+    <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Text sent to lead</span><time>+0:07</time></li>
+    <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-9 5.7a2 2 0 0 1-2 0L2 7"/></svg><span>Email sent to lead</span><time>+0:08</time></li>
+    <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a2 2 0 0 0 3.4 0"/></svg><span>Rep A alerted</span><time>+0:09</time></li>
+    <li class="wait"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Call task if no reply in 5 min</span><time>waiting</time></li>
+   </ol>
+  </div>
+ </div>
+</div></div>
+</div></section>
+
+<section class="sec" id="how"><div class="wrap">
+  <div class="sec-head"><p class="kicker">How it works</p><h2>Built in 7 days. Your team is trained on day 7.</h2></div>
+  <ol class="steps"><li><span class="n">01</span><h3>We map how leads reach you</h3><p>We look at your website forms, Google, Facebook and phone calls. We check your GoHighLevel account and list what's broken.</p><span class="when">Day 1</span></li><li><span class="n">02</span><h3>We build it and test it</h3><p>We set up your pipeline, 8 automations, text and email templates, calendars and forms. Then we send a test lead down every path, including STOP and HELP replies.</p><span class="when">Days 2 to 6</span></li><li><span class="n">03</span><h3>We train your team</h3><p>A 45-minute recorded training and a short written guide. Your team knows what to do when a lead replies.</p><span class="when">Day 7</span></li></ol>
+</div></section>
+
+<section class="sec alt" id="try"><div class="wrap">
+  <div class="sec-head"><p class="kicker">Try it</p><h2>Move a lead through the pipeline.</h2><p>This is a copy of the board we build, for a made-up roofer. Add a test lead, then move it stage by stage. The log shows each automation as it runs.</p></div>
+  <div class="app">
+ <div class="app-bar"><div class="t"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Opportunities · Summit Roofing</span></div><span class="ex">Example</span></div>
+ <div class="toolbar">
+  <button class="ctl pri" id="g-new"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Add a test lead</button>
+  <button class="ctl" id="g-adv"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Move to next stage</button>
+  <button class="ctl" id="g-miss"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/><path d="m16 2 6 6M22 2l-6 6"/></svg>Simulate a missed call</button>
+  <button class="ctl" id="g-reset"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.6-6.4L21 8"/><path d="M21 3v5h-5"/></svg>Reset</button>
+ </div>
+ <div class="board" id="kb"></div>
+ <div class="logwrap"><h5>Automation log</h5><ol id="alog"><li class="empty">Add a test lead to watch the automations run.</li></ol></div>
+</div>
+<script>
+(function(){
+const IC={"message": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/></svg>", "mail": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\"/><path d=\"m22 7-9 5.7a2 2 0 0 1-2 0L2 7\"/></svg>", "bell": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9\"/><path d=\"M10.3 21a2 2 0 0 0 3.4 0\"/></svg>", "user": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2\"/><circle cx=\"12\" cy=\"7\" r=\"4\"/></svg>", "phone": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z\"/></svg>", "phone-missed": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z\"/><path d=\"m16 2 6 6M22 2l-6 6\"/></svg>", "x": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M18 6 6 18M6 6l12 12\"/></svg>", "check": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg>", "calendar": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/><path d=\"M16 2v4M8 2v4M3 10h18\"/></svg>", "file": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6M16 13H8M16 17H8M10 9H8\"/></svg>", "dollar": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6\"/></svg>", "star": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z\"/></svg>", "clock": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 7v5l3 2\"/></svg>", "repeat": "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m17 2 4 4-4 4\"/><path d=\"M3 11v-1a4 4 0 0 1 4-4h14\"/><path d=\"m7 22-4-4 4-4\"/><path d=\"M21 13v1a4 4 0 0 1-4 4H3\"/></svg>"};
+const S=["New Lead","Contacted","Qualified","Estimate Sent","Booked","Job Won","Review Asked"];
+const A={
+ 0:[["message","Text sent to lead","WF-01","+0:07"],["mail","Email sent: “Got your request. Here's what's next.”","WF-01","+0:08"],["bell","Rep alerted by text and app","WF-08","+0:09"],["user","Assigned to Rep A (taking turns)","WF-01","+0:09"]],
+ 1:[["phone","Call connected, 2 min 14 sec","Rep A","+3:40"],["x","Follow-up texts stopped (lead answered)","WF-01","+3:41",1]],
+ 2:[["check","Qualified: in service area, wants work this month","Rep A","+6:05"],["calendar","Estimate booking link sent","WF-02","+6:06"]],
+ 3:[["dollar","Estimate sent, value $12,400","Rep A","Day 2"],["clock","Follow-ups set for day 1, 3 and 7","WF-04","Day 2"]],
+ 4:[["calendar","Job booked. Reminders 24 h and 2 h before","WF-05","Day 4"],["x","Estimate follow-ups stopped","WF-04","Day 4",1]],
+ 5:[["dollar","Marked as won. Counted on the dashboard","WF-08","Day 9"],["clock","Review request set for 2 h after the job","WF-06","Day 9"]],
+ 6:[["star","Text: “How did we do? Reply 1 to 5”","WF-06","Day 9"],["check","4 or 5 gets your Google review link. 1 to 3 goes to a private form and alerts you","WF-06","Day 9"]]};
+const kb=document.getElementById('kb'),log=document.getElementById('alog');
+let leads=[],sel=null,n=0,clock=0;
+const NAMES=[["Maria G.","MG"],["Dev P.","DP"],["Sam T.","ST"],["Lee R.","LR"]];
+function t(){clock+=1;const d=new Date(2026,9,20,16,2,11+clock*3);return d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit'})}
+function L(i,txt,wf,stop){const e=log.querySelector('.empty');if(e)e.remove();const li=document.createElement('li');if(stop)li.className='stop';li.innerHTML='<time>'+wf[1]+'</time>'+IC[i]+'<span><b>'+txt+'</b><span class="wf">'+wf[0]+'</span></span>';log.appendChild(li);log.scrollTop=1e9}
+function play(list){list.forEach(([i,txt,wf,off,stop],k)=>setTimeout(()=>L(i,txt,[wf,off],stop),320*(k+1)))}
+function draw(){kb.innerHTML=S.map((s,i)=>{const ls=leads.filter(l=>l.st===i);return '<div class="col"><h4>'+s+'<span>'+ls.length+'</span></h4><div class="stack-c">'+ls.map(l=>'<div class="card-l'+(l===sel?' sel':'')+'"><b>'+l.name+'</b><small>'+l.src+'</small>'+(l.st>=3&&l.val?'<div class="val">$'+l.val.toLocaleString()+'</div>':'')+'</div>').join('')+'</div></div>'}).join('')}
+document.getElementById('g-new').onclick=()=>{const nm=NAMES[n%4];n++;const l={name:nm[0],src:'Website form · roof leak',st:0,val:12400};leads.push(l);sel=l;L('file','New lead: '+nm[0]+' filled out “Get a free estimate”',['Trigger','4:02:11']);play(A[0]);draw()};
+document.getElementById('g-adv').onclick=()=>{if(!sel||sel.st>=6){L('x','Add a test lead first',['','—'],1);return}sel.st++;L('repeat','Moved to '+S[sel.st],['Stage','—']);play(A[sel.st]);draw()};
+document.getElementById('g-miss').onclick=()=>{n++;const l={name:'(310) 555-01'+(40+n),src:'Missed call',st:0};leads.push(l);sel=l;L('phone-missed','Missed call from '+l.name,['Trigger','—']);play([["message","Text back: “Sorry we missed you. How can we help?”","WF-03","+0:08"],["user","Contact and opportunity created (source: missed call)","WF-03","+0:08"],["bell","Owner alerted","WF-08","+0:09"]]);draw()};
+document.getElementById('g-reset').onclick=()=>{leads=[];sel=null;n=0;log.innerHTML='<li class="empty">Reset. Add a test lead to start again.</li>';draw()};
+draw();
+})();
+</script>
+  <p class="preview-note"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg><span>Summit Roofing, the leads and the $12,400 estimate are made up. Times are examples, not measured results.</span></p>
+</div></section>
+
+<section class="sec" id="get"><div class="wrap">
+  <div class="sec-head"><p class="kicker">What you get</p><h2>A complete GoHighLevel setup, built in your account.</h2></div>
+  <ul class="get"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Instant reply to every new lead</b><span>A text and an email within seconds, plus an alert to the right person. Leads are shared out in turn.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>A 7-stage pipeline</b><span>New, Contacted, Qualified, Estimate Sent, Booked, Won, Review. Each move starts the next step.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Missed-call text back</b><span>Missed callers get a text and show up as a new lead.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Estimate follow-up</b><span>Reminders on day 1, 3 and 7. They stop as soon as the customer replies.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Appointment reminders</b><span>Texts 24 hours and 2 hours before. No-shows get a text to reschedule.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Review requests</b><span>Happy customers get your Google review link. Unhappy ones go to a private form, and you get an alert.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>12 text and 6 email templates</b><span>Written in plain words. You approve each one before it goes live.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Text registration (A2P 10DLC)</b><span>We prepare and submit it, so carriers deliver your texts.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>A reporting dashboard</b><span>Reply time, booked rate and pipeline value on one screen.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Training and a written guide</b><span>Recorded, so new hires can watch it later.</span></div></li></ul>
+</div></section>
+
+<section class="sec alt" id="pricing"><div class="wrap">
+  <div class="sec-head"><p class="kicker">Pricing</p><h2>Two setup options. Care is optional.</h2><p>You pay GoHighLevel and your texting costs directly. We don't resell anything or mark it up.</p></div>
+  <div class="price">
+    <div><p class="label">Full system</p><div class="amt">$600<small>one time</small></div><p class="then">Built in 7 days. Add care for $249 a month if you want it.</p><ul><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Everything in Starter</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>All 8 automations and 18 templates</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Calendars, forms and lead sharing</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Reporting dashboard</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Recorded training and written guide</span></li></ul><a class="btn" href="https://calendly.com/ventailabs-marketing/30min" target="_blank" rel="noopener">Book a 30-min call<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <div><p class="label">All options</p><ul class="tiers"><li><div><b>Starter</b><small>Pipeline, instant reply, missed-call text, review requests, A2P</small></div><span class="p">$495</span></li><li><div><b>Full system</b><small>Everything above, plus all 8 automations</small></div><span class="p">$600</span></li><li><div><b>Care</b><small>Monitoring, fixes, template upkeep, monthly report</small></div><span class="p">$249/mo</span></li><li><div><b>Agency or multi-location</b><small>Snapshots, AI chat or voice, Jobber, ServiceTitan</small></div><span class="p">Quote</span></li></ul><p class="note">Already have a messy setup? We review it first, then quote a fixed price.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="faq"><div class="wrap">
+  <div class="sec-head"><p class="kicker">Questions</p><h2>Straight answers</h2></div>
+  <div class="faq"><details><summary>Do I need a GoHighLevel account?</summary><p>Yes, in your name or through your agency. We build inside your account. You keep everything.</p></details><details><summary>How long does text registration take?</summary><p>The carriers decide, not us. It usually takes a few days to a few weeks. We prepare it carefully to avoid rejections.</p></details><details><summary>Can you fix my current setup?</summary><p>Yes. We review it first. Most fixes fit the Starter or Full system price. Big rebuilds get a fixed quote.</p></details><details><summary>Who writes the messages?</summary><p>We do, in plain words. You approve every one before it goes live.</p></details><details><summary>Is the preview a real business?</summary><p>No. Summit Roofing and its leads are made up. The preview shows how the system works.</p></details></div>
+</div></section>
+
+<section class="close"><div class="wrap">
+  <h2>Stop letting new leads go cold.</h2>
+  <p>In 30 minutes we'll look at where your leads come from and how fast you reply today. You'll leave with a fixed quote.</p>
+  <a class="btn" href="https://calendly.com/ventailabs-marketing/30min" target="_blank" rel="noopener">Book a 30-min call<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <p class="alt">Rather talk now? Call or text Angel at <a href="tel:+12134291269">213-429-1269</a>.</p>
+</div></section>
+</main>
+<footer><div class="wrap">
+  <p>VentAiLabs · Angel Felix · Compton, CA · 213-429-1269</p>
+  <p>Screens on this page use a made-up business and are marked “Example”. They show how the system works. They are not client results.</p>
+</div></footer>
+</body>
+</html>

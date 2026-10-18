@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reliable n8n Automation | VentAiLabs</title>
+<meta name="description" content="n8n automations that keep running, and tell you when they don&#x27;t. Paging, retries, no duplicates, alerts, tests and a guide. One workflow from $495.">
+<link rel="stylesheet" href="site.css">
+<style>
+.hv{display:grid;gap:16px}
+.exl{list-style:none;margin:0;padding:0}
+.exl li{display:grid;grid-template-columns:62px minmax(0,1fr) auto;gap:12px;align-items:center;padding:11px 16px;border-top:1px solid var(--line2);font-size:13.5px}
+.exl li:first-child{border-top:0}
+.exl .id{font:12.5px var(--mono);color:var(--muted)}
+.exl small{display:block;color:var(--muted);font-size:12px}
+.alert-c{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:14px 16px}
+.alert-c .av{width:34px;height:34px;border-radius:6px;background:var(--red-bg);color:var(--red);display:grid;place-items:center}
+.alert-c .av .ic{width:17px;height:17px}
+.alert-c b{font-size:14px}
+.alert-c p{font-size:13.5px;color:var(--ink2);margin-top:3px}
+.alert-c .mono{display:block;margin-top:8px;color:var(--muted)}
+/* preview */
+.runbar{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid var(--line2)}
+.ex2{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);min-height:470px}
+.nodes{padding:14px 16px;border-right:1px solid var(--line2)}
+.nodes h5,.outp h5{margin:0 0 8px;font:600 12px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.nodes h5.err{margin-top:16px}
+.nd{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;align-items:center;padding:7px 8px;border-radius:6px;font-size:13.5px;transition:background .2s}
+.nd .nb{width:30px;height:30px;border-radius:6px;border:1px solid var(--line);background:var(--white);display:grid;place-items:center;color:var(--muted)}
+.nd .nb .ic{width:15px;height:15px}
+.nd small{display:block;font-size:11.5px;color:var(--faint)}
+.nd .st{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--line)}
+.nd.run{background:var(--brand-tint)}
+.nd.run .st{border-color:var(--brand);border-top-color:transparent;animation:spin .7s linear infinite}
+.nd.done .st{border:0;background:var(--brand);mask:none;position:relative}
+.nd.done .st::after{content:"";position:absolute;left:6px;top:3px;width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.nd.err{background:var(--red-bg)}
+.nd.err .st{border:0;background:var(--red);position:relative}
+.nd.err .st::after{content:"!";position:absolute;inset:0;color:#fff;font:700 12px/18px var(--sans);text-align:center}
+.nd.done .nb,.nd.run .nb{color:var(--brand)}
+.nd.err .nb{color:var(--red)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.outp{padding:14px 16px;display:flex;flex-direction:column;min-width:0;background:#FCFCFB}
+#nlog{flex:1;margin:0;font:12.5px/1.7 var(--mono);color:var(--ink2);white-space:pre-wrap;word-break:break-word;overflow-y:auto;max-height:420px}
+#nlog .e{color:var(--red)}#nlog .ok{color:var(--brand-dk)}#nlog .w{color:var(--amber)}
+#nsum{margin-top:10px}
+@media (max-width:860px){.ex2{grid-template-columns:minmax(0,1fr)}.nodes{border-right:0;border-bottom:1px solid var(--line2)}#nlog{min-height:200px}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="mark" href="#top"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#0B6E63" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 22 20H2z"/><path d="M8.2 12.6 11.2 18M10.5 18h6.2M14.6 11.3l3.3 5.9"/></svg>VentAiLabs</a>
+  <nav aria-label="Page"><a href="#how">How it works</a><a href="#try">Try it</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a class="btn small" href="https://calendly.com/ventailabs-marketing/30min" target="_blank" rel="noopener">Book a call</a></nav>
+</div></header>
+<main id="top">
+<section class="hero"><div class="wrap">
+  <div>
+    <p class="kicker">Workflow automation for small teams</p>
+    <h1>n8n automations that keep running. If one breaks, you hear about it first.</h1>
+    <p class="lede">For owners and small teams who use n8n to move data between apps. <b>One workflow from $495</b>, built in your n8n, with tests, alerts and a plain-English guide.</p>
+    <div class="actions"><a class="btn" href="https://calendly.com/ventailabs-marketing/30min" target="_blank" rel="noopener">Book a 30-min call<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="textlink" href="#try">See how it works</a></div>
+    <ul class="facts"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a2 2 0 0 0 3.4 0"/></svg>Alerts when a step fails</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>Safe to re-run, no duplicates</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7.5" cy="15.5" r="4.5"/><path d="m10.7 12.3 9.8-9.8M17 6l3 3M14.5 8.5l2 2"/></svg>Runs in your own n8n</li></ul>
+  </div>
+  <div class="stack" aria-label="Example of the product"><span class="ex corner">Example</span>
+<div class="hv">
+ <div class="app">
+  <div class="app-bar"><div class="t"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg><span>Executions · Sync orders to Google Sheets</span></div><span>Every hour</span></div>
+  <ul class="exl">
+   <li><span class="id">#1043</span><span>27 rows written<small>Today 9:00 AM · 41 s</small></span><span class="tag g">Succeeded</span></li>
+   <li><span class="id">#1042</span><span>0 rows written, nothing new<small>Today 8:00 AM · 22 s · re-run</small></span><span class="tag g">Succeeded</span></li>
+   <li><span class="id">#1041</span><span>API busy, retried 2 times<small>Today 7:00 AM · 58 s</small></span><span class="tag g">Succeeded</span></li>
+   <li><span class="id">#1040</span><span>Google Sheets down at “Upsert rows”<small>Today 6:00 AM · alert sent</small></span><span class="tag r">Failed</span></li>
+  </ul>
+ </div>
+ <div class="app">
+  <div class="app-bar"><div class="t"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-9 5.7a2 2 0 0 1-2 0L2 7"/></svg><span>Alert email</span></div><span>6:03 AM</span></div>
+  <div class="alert-c"><span class="av"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg></span><div><b>Sync orders failed at “Upsert rows”</b><p>Google Sheets returned 503 five times in a row. No rows were written, so nothing is half-done. The next run is at 7:00 AM.</p><span class="mono">execution #1040 · open in n8n</span></div></div>
+ </div>
+</div></div>
+</div></section>
+
+<section class="sec" id="how"><div class="wrap">
+  <div class="sec-head"><p class="kicker">How it works</p><h2>Scoped in 30 minutes. Built and tested in your account.</h2></div>
+  <ol class="steps"><li><span class="n">01</span><h3>We scope the job</h3><p>Where the data comes from, where it goes, how much there is, and what should happen when something fails.</p><span class="when">30 minutes</span></li><li><span class="n">02</span><h3>We build it in your n8n</h3><p>It pages through every result, retries when an app is busy, never writes duplicates, and sends an alert if a step fails. Settings live in one place.</p><span class="when">Timeline fixed on the call</span></li><li><span class="n">03</span><h3>We test it and hand it over</h3><p>We run test data through every path, including failures. You get a plain-English guide, a recorded walkthrough and 14 days of fixes.</p><span class="when">14 days of fixes included</span></li></ol>
+</div></section>
+
+<section class="sec alt" id="try"><div class="wrap">
+  <div class="sec-head"><p class="kicker">Try it</p><h2>Run the sample workflow.</h2><p>This reference build copies orders from an API into Google Sheets. Pick a run to see how it handles a normal day, a busy API, a second run and an outage.</p></div>
+  <div class="app">
+ <div class="app-bar"><div class="t"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg><span>Sync orders to Google Sheets · reference build</span></div><span class="ex">Example data</span></div>
+ <div class="runbar"><div class="seg" role="group" aria-label="Pick a run">
+  <button data-r="ok" aria-pressed="true">Normal run</button><button data-r="429" aria-pressed="false">API is busy</button><button data-r="dup" aria-pressed="false">Run it twice</button><button data-r="fail" aria-pressed="false">Sheets is down</button></div>
+  <span class="muted" style="font-size:13px" id="nexec">Execution #1044</span></div>
+ <div class="ex2">
+  <div class="nodes"><h5>Main path</h5><div class="nd" id="n0"><span class="nb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span>Schedule<small>Every hour</small></span><span class="st"></span></div><div class="nd" id="n1"><span class="nb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></svg></span><span>Settings<small>Page size, limits</small></span><span class="st"></span></div><div class="nd" id="n2"><span class="nb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><span>Get all pages<small>HTTP request</small></span><span class="st"></span></div><div class="nd" id="n3"><span class="nb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></span><span>Read existing rows<small>Google Sheets</small></span><span class="st"></span></div><div class="nd" id="n4"><span class="nb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></span><span>Clean and check<small>Code</small></span><span class="st"></span></div><div class="nd" id="n5"><span class="nb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg></span><span>Skip duplicates<small>Code</small></span><span class="st"></span></div><div class="nd" id="n6"><span class="nb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></span><span>Batch of 50<small>Split in batches</small></span><span class="st"></span></div><div class="nd" id="n7"><span class="nb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></span><span>Upsert rows<small>Google Sheets</small></span><span class="st"></span></div><div class="nd" id="n8"><span class="nb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></span><span>Run summary<small>Set</small></span><span class="st"></span></div><h5 class="err">If a step fails</h5><div class="nd" id="n9"><span class="nb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></span><span>Format error<small>Code</small></span><span class="st"></span></div><div class="nd" id="n10"><span class="nb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-9 5.7a2 2 0 0 1-2 0L2 7"/></svg></span><span>Send alert<small>Email / Slack</small></span><span class="st"></span></div></div>
+  <div class="outp"><h5>Execution log</h5><pre id="nlog">Pick a run above to watch it step by step.</pre><div id="nsum"></div></div>
+ </div>
+</div>
+<script>
+(function(){
+const NM=["Schedule", "Settings", "Get all pages", "Read existing rows", "Clean and check", "Skip duplicates", "Batch of 50", "Upsert rows", "Run summary", "Format error", "Send alert"];
+const S={ok:[[0,"Triggered at 09:00 PT"],[1,"pageSize=100, maxPages=200"],[2,"GET page 1: 100 rows, next=c2"],[2,"GET page 2: 100 rows, next=c3"],[2,"GET page 3: 37 rows, no next page. Done."],[3,"Sheet already has 210 order IDs"],[4,"237 valid rows, 0 bad rows"],[5,"27 new or changed. 210 unchanged, skipped."],[6,"1 batch"],[7,"Wrote 27 rows (matched on order ID)"],[8,"ok:Done. 27 rows written."]],
+"429":[[0,"Triggered at 09:00 PT"],[1,"pageSize=100, maxPages=200"],[2,"w:GET page 1: 429 Too Many Requests"],[2,"w:Wait 5 s, try 2 of 5: 429 again"],[2,"Wait 5 s, try 3 of 5: 200 OK"],[2,"Pages 2 and 3 OK (250 ms between calls)"],[3,"Read existing rows"],[4,"Clean and check"],[5,"Skip duplicates"],[7,"Wrote rows"],[8,"ok:Done. Recovered on its own. No alert needed."]],
+dup:[[0,"Manual re-run"],[1,"pageSize=100, maxPages=200"],[2,"3 pages fetched, 237 rows"],[3,"Sheet already has 237 order IDs"],[4,"237 valid rows"],[5,"0 new or changed. Nothing to write."],[8,"ok:Done. 0 rows written. No duplicates."]],
+fail:[[0,"Triggered at 09:00 PT"],[1,"pageSize=100, maxPages=200"],[2,"3 pages OK"],[3,"Read existing rows"],[4,"Clean and check"],[5,"27 rows to write"],[6,"1 batch"],[7,"e:503 Service Unavailable"],[7,"e:Tried 5 times. Still failing."],[9,"step=Upsert rows, error=503, rows written=0"],[10,"ok:Alert sent: “Sync orders failed at Upsert rows”"]]};
+const SUM={ok:'<span class="tag g">Succeeded</span> <span class="muted" style="font-size:13px">27 rows written</span>','429':'<span class="tag g">Succeeded</span> <span class="muted" style="font-size:13px">after 2 retries</span>',dup:'<span class="tag g">Succeeded</span> <span class="muted" style="font-size:13px">0 duplicates</span>',fail:'<span class="tag r">Failed</span> <span class="muted" style="font-size:13px">you got an alert</span>'};
+const lg=document.getElementById('nlog'),sum=document.getElementById('nsum');let tm=[],ex=1044;
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+function run(r){tm.forEach(clearTimeout);tm=[];document.querySelectorAll('.nd').forEach(e=>e.className='nd');lg.innerHTML='';sum.innerHTML='';
+ document.querySelectorAll('[data-r]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.r===r?'true':'false'));
+ document.getElementById('nexec').textContent='Execution #'+(ex++);
+ const steps=S[r];
+ steps.forEach(([i,m],k)=>tm.push(setTimeout(()=>{
+  document.querySelectorAll('.nd.run').forEach(e=>{e.classList.remove('run');e.classList.add('done')});
+  let cls='',txt=m;const mm=m.match(/^(ok|e|w):(.*)$/);if(mm){cls=mm[1];txt=mm[2]}
+  const e=document.getElementById('n'+i);e.className='nd '+(cls==='e'?'err':'run');
+  lg.innerHTML+='<span class="'+cls+'">['+NM[i]+'] '+esc(txt)+'</span>\n';lg.scrollTop=1e9;
+  if(k===steps.length-1){tm.push(setTimeout(()=>{document.querySelectorAll('.nd.run').forEach(x=>{x.classList.remove('run');x.classList.add('done')});sum.innerHTML=SUM[r]},450))}
+ },450*k)))}
+document.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>run(b.dataset.r));
+})();
+</script>
+  <p class="preview-note"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg><span>Sample data only. The API is a placeholder (api.example.com) and the execution numbers are examples.</span></p>
+</div></section>
+
+<section class="sec" id="get"><div class="wrap">
+  <div class="sec-head"><p class="kicker">What you get</p><h2>Built to run without you watching it.</h2></div>
+  <ul class="get"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>The workflow file</b><span>Ready to import, and checked for broken links between steps.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Every page of results</b><span>Many builds only grab the first page. Ours get all of it, with limits so a run can't go forever.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Retries when an app is busy</b><span>If an app says “too many requests” or goes down for a moment, it waits and tries again, up to 5 times.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>No duplicate rows</b><span>Run it twice and nothing doubles. It only writes rows that are new or changed.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Failure alerts</b><span>An email or Slack message that names the step that failed and why.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Tests for every path</b><span>Sample data for the normal run and for failures, plus tests for any custom code.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>A plain-English guide</b><span>Setup, settings, what to watch, and how to fix common problems.</span></div></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>14 days of fixes</b><span>If something breaks after launch, we fix it.</span></div></li></ul>
+</div></section>
+
+<section class="sec alt" id="pricing"><div class="wrap">
+  <div class="sec-head"><p class="kicker">Pricing</p><h2>Priced per workflow. Fixed before we start.</h2><p>Runs in your own n8n, cloud or self-hosted. Your logins and data stay in your account.</p></div>
+  <div class="price">
+    <div><p class="label">Single workflow</p><div class="amt">$495<small>and up</small></div><p class="then">One source to one destination. The price is fixed after the scoping call.</p><ul><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Full paging, retries and no duplicates</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Failure path and alerts</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Tests and a written guide</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Recorded walkthrough</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>14 days of fixes</span></li></ul><a class="btn" href="https://calendly.com/ventailabs-marketing/30min" target="_blank" rel="noopener">Book a 30-min call<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <div><p class="label">All options</p><ul class="tiers"><li><div><b>Single workflow</b><small>One source, one destination</small></div><span class="p">from $495</span></li><li><div><b>Fix a workflow you have</b><small>We review it, then quote a fixed price</small></div><span class="p">from $495</span></li><li><div><b>Multi-step system</b><small>Several apps, webhooks, queues, self-hosting help</small></div><span class="p">Quote</span></li><li><div><b>Care</b><small>Monitoring, fixes when an app changes, monthly report</small></div><span class="p">$249/mo</span></li></ul><p class="note">We don't host your workflows or resell n8n.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="faq"><div class="wrap">
+  <div class="sec-head"><p class="kicker">Questions</p><h2>Straight answers</h2></div>
+  <div class="faq"><details><summary>Cloud or self-hosted n8n?</summary><p>Either. Everything runs in your account. We don't host it or resell it.</p></details><details><summary>Which apps can you connect?</summary><p>Any app with a documented API. We set its paging style and rate limits in one settings step.</p></details><details><summary>Can you fix workflows we already have?</summary><p>Yes. We review them first, then quote a fixed price to make them reliable, from $495.</p></details><details><summary>Is the sample workflow a client project?</summary><p>No. It's a reference build that uses a placeholder API (api.example.com), so you can see how we build.</p></details><details><summary>What if an app we use changes?</summary><p>The alert tells you which step broke. On the care plan, we fix it for you.</p></details></div>
+</div></section>
+
+<section class="close"><div class="wrap">
+  <h2>Stop finding out days later that a workflow broke.</h2>
+  <p>In 30 minutes we'll look at what you want to automate, or what keeps breaking. You'll leave with a fixed quote.</p>
+  <a class="btn" href="https://calendly.com/ventailabs-marketing/30min" target="_blank" rel="noopener">Book a 30-min call<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <p class="alt">Rather talk now? Call or text Angel at <a href="tel:+12134291269">213-429-1269</a>.</p>
+</div></section>
+</main>
+<footer><div class="wrap">
+  <p>VentAiLabs · Angel Felix · Compton, CA · 213-429-1269</p>
+  <p>Screens on this page use a made-up business and are marked “Example”. They show how the system works. They are not client results.</p>
+</div></footer>
+</body>
+</html>
